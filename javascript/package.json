@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git@github.com:NeilChan/yoga.git"
   },
+  "config": {
+    "platform": "standalone"
+  },
   "main": "./dist/entry-browser",
   "scripts": {
     "which": "which",
