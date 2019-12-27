@@ -22,7 +22,7 @@
     "build:node": "npm run copy-sources && autogypi && node-gyp configure build",
     "build:browser": "npm run copy-sources && autogypi && node-gyp configure build --asmjs=1",
     "build:all": "npm run build:node && npm run build:browser",
-    "build": "cross-env \"npm --if-present run build:$npm_package_config_platform\"",
+    "build": "build:browser",
     "test:node": "TEST_ENTRY=node time mocha --compilers js:babel-core/register --expose-gc -r tests/tools.js tests/Facebook.Yoga/**/*.js",
     "test:browser": "TEST_ENTRY=browser time mocha --compilers js:babel-core/register --expose-gc -r tests/tools.js tests/Facebook.Yoga/**/*.js",
     "test": "npm run test:node && npm run test:browser",
