@@ -1,17 +1,13 @@
 {
   "name": "xx-yoga-layout",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Yoga is a cross-platform layout engine enabling maximum collaboration within your team by implementing an API many designers are familiar with, and opening it up to developers across different platforms.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:NeilChan/yoga.git"
   },
-  "main": "./dist/entry-node",
-  "browser": "./dist/entry-browser",
-  "config": {
-    "platform": "all"
-  },
+  "main": "./dist/entry-browser",
   "scripts": {
     "which": "which",
     "autogypi": "autogypi",
@@ -21,8 +17,8 @@
     "copy-sources": "! npm -s run is-monolithic || (rsync -r --checksum --delete ../yoga/ sources/yoga/)",
     "build:node": "npm run copy-sources && autogypi && node-gyp configure build",
     "build:browser": "npm run copy-sources && autogypi && node-gyp configure build --asmjs=1",
-    "build:all": "npm run build:node && npm run build:browser",
-    "build": "build:browser",
+    "build:all": "npm run build:browser",
+    "build": "npm run build:browser",
     "test:node": "TEST_ENTRY=node time mocha --compilers js:babel-core/register --expose-gc -r tests/tools.js tests/Facebook.Yoga/**/*.js",
     "test:browser": "TEST_ENTRY=browser time mocha --compilers js:babel-core/register --expose-gc -r tests/tools.js tests/Facebook.Yoga/**/*.js",
     "test": "npm run test:node && npm run test:browser",
